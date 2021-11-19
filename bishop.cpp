@@ -23,5 +23,15 @@ bool Bishop::canMoveTo(Square& location) const
     bool validMove = true
 
     // valid move if moving on a clear diagonal
-    if(Board::getBoard() -> insClearDiagonal)
+    if(Board::getBoard() -> insClearDiagonal(*(this -> location()), location))
+    {
+        validMove = true;
+    }
+
+    return validMove;
+}
+
+void Bishop::display() const
+{
+    cout << _color + "B";
 }
