@@ -159,3 +159,32 @@ bool Board::isClearDiagonal(Square& from, Square& to) const
     }
     return valid;
 }
+
+bool Board::display(Square& location) const
+{
+    return (location.getY() == 0 || location.getY() == (_DIMENSION - 1));
+}
+
+void Board::display(ostream& outStream) const
+{
+    // display each square and any pieces on the board
+    outStream << endl << "  a b c d e f g h" << endl;
+    outStream << "-------------------" << endl;
+    // display black at top, white at bottom
+    for (int y = _DIMENSION - 1; y >= 0; y--)
+    {
+        outStream << y + 1;
+        for (int x = 0; x < _DIMENSION; x++)
+        {
+            outStream << "|"
+            if (_squares[x][y] -> occupied())
+                _squares[x][y] -> occupiedBy() -> display();
+            else
+                outStream << " ";
+        }
+        outStream << "|" << y + 1 << endl " -------------------" << endl;
+    }
+    outStream << "  a b c d e f g h" << endl << endl;
+}
+
+Board* Board::_theBoard = NULL;
