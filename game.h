@@ -55,7 +55,7 @@ private:
    static Player* nextPlayer;
    static set<Piece*> whitePieces;
    static set<Piece*> blackPieces;
-}
+};
 
 // game
 

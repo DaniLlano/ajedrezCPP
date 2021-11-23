@@ -45,6 +45,6 @@ class King : public RestrictedPiece
         @param outStream the output stream
        */
         void display() const;
-}
+};
 
 #endif
